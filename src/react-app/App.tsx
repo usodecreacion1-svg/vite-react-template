@@ -1,9 +1,25 @@
 import "./App.css";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <header className="header">
+      <header className={`header ${isScrolled ? "scrolled" : ""}`}>
         <div className="container">
           <div className="logo">
             <h1>PropagandaPro</h1>
@@ -23,14 +39,14 @@ function App() {
       <section className="hero" id="hero">
         <div className="container">
           <div className="hero-content">
-            <h1>Potencia tu negocio con propaganda efectiva</h1>
-            <p>Plataforma integral para crear, gestionar y optimizar tus campañas publicitarias. Llega a más clientes y maximiza tu ROI.</p>
+            <h1 className="animate-fade-in-up" data-delay="100">Potencia tu negocio con propaganda efectiva</h1>
+            <p className="animate-fade-in-up" data-delay="200">Plataforma integral para crear, gestionar y optimizar tus campañas publicitarias. Llega a más clientes y maximiza tu ROI.</p>
             <div className="hero-actions">
-              <a href="#features" className="btn-primary">Comenzar Gratis</a>
-              <a href="#contact" className="btn-secondary">Contáctanos</a>
+              <a href="#features" className="btn-primary animate-fade-in-up" data-delay="300">Comenzar Gratis</a>
+              <a href="#contact" className="btn-secondary animate-fade-in-up" data-delay="400">Contáctanos</a>
             </div>
           </div>
-          <div className="hero-image">
+          <div className="hero-image animate-fade-in-up" data-delay="500">
             <div className="ad-preview">
               {/* Placeholder for ad preview */}
               <div className="ad-frame">
