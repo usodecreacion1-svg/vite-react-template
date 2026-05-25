@@ -105,6 +105,10 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 .logo h1 {
@@ -129,6 +133,9 @@ a:hover {
 
 .nav li {
   margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav a {
@@ -136,7 +143,9 @@ a:hover {
   font-weight: 500;
   transition: opacity 0.3s ease;
   padding: 0.5rem 0;
-  display: block;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .nav a:hover {
